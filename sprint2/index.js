@@ -1,6 +1,7 @@
+this.acumulador=0;
+this.dividir=0;
 function capturar(){
-    acumulador=0;
-    function Persona(nombre,monto,acumulador){
+    function Persona(nombre,monto){
         this.nombre=nombre;
         this.monto=monto;
     }
@@ -9,11 +10,16 @@ function capturar(){
     let montoCapturar = document.getElementById("monto").value;
     /* console.log(sumaCapturar); */
 
+    //Suma de los montoss
+    for (i= 0; i<montoCapturar.length-2; i++) {
+        acumulador=acumulador+Number(montoCapturar);
+        dividir=acumulador/Number(montoCapturar.length);
+        console.log(acumulador)
+    }
+  
     nuevoSujeto = new Persona(nombreCapturar,montoCapturar);
-    console.log(nuevoSujeto); 
     agregar();
 
-    acumulador=+Number(monto);
 }
 
 const baseDatos= [];
@@ -22,4 +28,5 @@ function agregar(){
     /* console.log(baseDatos); */
     document.getElementById("tabla").innerHTML +='<tbody><td>'+nuevoSujeto.nombre+'</td><td>$'+nuevoSujeto.monto+'</td></tbody>';
     document.getElementById("mitotal").innerHTML=acumulador;
+    document.getElementById("cadauno").innerHTML=dividir;
 };
